@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: url(./Background1.gif) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.navbar{
+  background: linear-gradient(to right bottom, rgba(136, 136, 136, 0.7), rgba(190, 190, 190, 0.945));
+  margin-bottom: 1rem;
+}
+
+.navbar-item{
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.logo{
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+}
