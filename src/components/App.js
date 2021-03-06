@@ -1,4 +1,3 @@
-
 import React, {useState} from 'react';
 import { makeStyles} from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -6,11 +5,16 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import Work from './Work';
+import Grid from '@material-ui/core/Grid';
+import About from './About';
+
 
 function App() {
   const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
+      height: '100vh'
     },
     h2: {
       color: 'white',
@@ -37,19 +41,32 @@ function App() {
   function changeArrowBack(){
     setHover(false);
   }
+
   return (
     <div className={classes.root}>
-      <div className='container'>
-      <Container>
-        <Typography variant="h2" gutterBottom className={classes.h2}>
-          Hello, I'm <span className={classes.name}>Bogdan Cozma</span>.
-        </Typography>
-        <Typography variant="h2" gutterBottom className={classes.h2}>
-          I'm a full-stack web developer.
-        </Typography>
-        <Button onMouseOver={changeArrow} onMouseOut={changeArrowBack} variant={onHover ? "contained" : "outlined"} color="primary" size="large" className={classes.button}>View my work {onHover ? <ArrowDownwardIcon/> : <ArrowForwardIcon/>}</Button>
-      </Container>
-      </div>
+      <Grid container>
+        {/* welcome page */}
+        <Grid item xs={12} className='container'>
+            <Container>
+              <div id='home'>
+              <Typography variant="h2" gutterBottom className={classes.h2}>
+                Hello, I'm <span className={classes.name}>Bogdan Cozma</span>.
+              </Typography>
+              <Typography variant="h2" gutterBottom className={classes.h2}>
+                I'm a full-stack web developer.
+              </Typography>
+              <Button onMouseOver={changeArrow} onMouseOut={changeArrowBack} variant={onHover ? "contained" : "outlined"} color="primary" size="large" className={classes.button}>View my work {onHover ? <ArrowDownwardIcon/> : <ArrowForwardIcon/>}</Button>
+              </div>
+            </Container>          
+        </Grid> 
+        {/* projects section */}
+        <Grid item xs={12}>    
+          <Work /> 
+        </Grid>
+        <Grid item xs={12}>
+          <About />
+        </Grid>
+      </Grid>
     </div>
     
   );

@@ -2,11 +2,6 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: url(./Background1.gif) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
 
 .container {
@@ -14,29 +9,200 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  /* background: url(./Background1.gif) no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  */
+  background: green;
 }
 
 .navbar{
-  background: linear-gradient(to right bottom, rgba(136, 136, 136, 0.7), rgba(190, 190, 190, 0.945));
-  margin-bottom: 1rem;
+  background: linear-gradient(to right bottom, rgba(25, 26, 30, 0.7), rgba(24, 26, 30, 0.945));
+  border-bottom: 3px solid #11C1C9;
+  width: 100%;
+}
+
+.navbar-btn {
+  color: white;
+  text-decoration: none;
+}
+.navbar-btn:active{
+  color: #d83637;
 }
 
 .navbar-item{
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
+  padding-right: 3rem;
 }
 
-.logo{
+.animation-box {
+  width: 100%;
+  height: 10vh;
+  background: #ffffff;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;}
+
+.box {
+  width: 120px;
+  height: 250px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
-ul {
-  list-style: none;
+.title {
+  width: 100%;
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  
+  height: 50px;
 }
+  
+.block {
+  width: 0%;
+  height: inherit;
+  background: #d83637;
+  position: absolute;
+  animation: mainBlock 2s cubic-bezier(.74, .06, .4, .92) forwards;
+  display: flex;
+}
+
+h1 {
+  color: #1e2334;
+  font-size: 32px;
+  -webkit-animation: mainFadeIn 2s forwards;
+  -o-animation: mainFadeIn 2s forwards;
+  animation: mainFadeIn 2s forwards;
+  animation-delay: 1.6s;
+  opacity: 0;
+  display: flex;
+  align-items: baseline;
+  position: relative;
+}
+
+.dot {
+  width:0px;
+  height: 0px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background: #d83637;
+  -webkit-animation: load 0.6s cubic-bezier(.74, .06, .4, .92) forwards;
+  animation: popIn 0.8s cubic-bezier(.74, .06, .4, .92) forwards;
+  margin-left: 5px;
+  margin-top: -10px;
+  position: absolute;
+  bottom: 13px;
+  right: -12px;
+}
+
+@keyframes mainBlock {
+  0% {
+    width: 0%;
+    left: 0;
+
+  }
+  50% {
+    width: 100%;
+    left: 0;
+
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+@keyframes secBlock {
+  0% {
+    width: 0%;
+    left: 0;
+
+  }
+  50% {
+    width: 100%;
+    left: 0;
+
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+@keyframes mainFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@keyframes popIn {
+  0% {
+    width: 0px;
+    height: 0px;
+    background: #d83637;
+    border: 0px solid #ddd;
+    opacity: 0;
+  }
+  50% {
+    width: 10px;
+    height: 10px;
+    background: #d83637;
+    opacity: 1;
+    bottom: 45px;
+  }
+  65% {
+    width: 7px;
+    height: 7px;
+    bottom: 0px;
+    width: 15px
+  }
+  80% {
+    width: 10px;
+    height: 10px;
+    bottom: 20px
+  }
+  100% {
+    width: 7px;
+    height: 7px;
+    background: #d83637;
+    border: 0px solid #222;
+    bottom: 13px;
+  }
+}
+
+@keyframes secFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+ 
+.projects-grid{
+  background: yellow;
+}
+
+.icon-space{
+  margin-right: 2rem;
+  margin-left: 2rem;
+}
+
+.card-style {
+  margin: 1rem;
+}
+
+.button-style {
+  margin-right: 1rem;
+}
+
