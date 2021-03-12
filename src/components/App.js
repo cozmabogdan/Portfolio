@@ -7,7 +7,7 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import Work from './Work';
 import Grid from '@material-ui/core/Grid';
-import About from './About';
+
 
 
 function App() {
@@ -63,9 +63,7 @@ function App() {
         <Grid item xs={12}>    
           <Work /> 
         </Grid>
-        <Grid item xs={12}>
-          <About />
-        </Grid>
+        
       </Grid>
     </div>
     

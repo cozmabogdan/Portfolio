@@ -18,6 +18,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkIcon from '@material-ui/icons/Link';
 import img1 from '../images/project1.jpeg';
 import img2 from '../images/project2.jpeg';
+import About from '../components/About';
 
 function NavBar(){
     const useStyles = makeStyles((theme) => ({
@@ -49,7 +50,7 @@ function NavBar(){
     return (
         <div className={classes.root}>
             <React.Fragment>
-            <AppBar position='static' className='navbar'>
+            <AppBar position='sticky' className='navbar'>
                 <Toolbar className='navbar-item'>
                     <Typography variant="h6" className='navbar-item'>
                         <Button size="large"><a href="home" className='navbar-btn'>Home</a></Button>
@@ -162,6 +163,9 @@ function NavBar(){
                         </CardContent>
                     </Collapse>
                     </Card>
+                </Grid>
+                <Grid item xs={12}>
+                    <About />
                 </Grid>
             </Grid>
             </React.Fragment>
