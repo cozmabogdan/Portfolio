@@ -19,6 +19,7 @@ import LinkIcon from '@material-ui/icons/Link';
 import img1 from '../images/project1.jpeg';
 import img2 from '../images/project2.jpeg';
 import About from '../components/About';
+import Contact from './Contact';
 
 function NavBar(){
     const useStyles = makeStyles((theme) => ({
@@ -166,6 +167,9 @@ function NavBar(){
                 </Grid>
                 <Grid item xs={12}>
                     <About />
+                </Grid>
+                <Grid item xs={12}>
+                    <Contact />
                 </Grid>
             </Grid>
             </React.Fragment>
