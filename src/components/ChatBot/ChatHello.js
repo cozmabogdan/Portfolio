@@ -1,4 +1,4 @@
-import React, { useRef, useEffect} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import { Spring } from 'react-spring/renderprops';
 import Chip from '@material-ui/core/Chip';
@@ -37,16 +37,16 @@ function Hello(){
             backgroundColor: '#161b1d',
             color:'#f5f5f5',
             height: 40,            
-        },
+        },        
     }));
       
     const classes = useStyles();
-    const setChatContact = () => {
-        return <ChatContact />
-    }
+    const [chatAgain, setChatAgain] = useState(true);
+    
+
     const el = useRef(null);
     useEffect(() => {
-        el.current.scrollIntoView({block: 'end', behavior: 'smooth', inline: 'nearest' });
+        el.current.scrollIntoView({behavior: 'smooth' });
     });
     
     return(
@@ -115,9 +115,20 @@ function Hello(){
                                                                                         <CardContent className={classes.chatBubleMargin}>
                                                                                             <Chip 
                                                                                                 label="😁 Think i could be an asset to your company?" 
-                                                                                                onClick={setChatContact}                                                                                                  
+                                                                                                onClick={()=>{
+                                                                                                    setChatAgain(()=>{
+                                                                                                        return(
+                                                                                                            <div>
+                                                                                                                {chatAgain ? <ChatContact /> : ''}
+                                                                                                            </div>
+                                                                                                        )
+                                                                                                    })
+                                                                                                }}                                                                                                  
                                                                                                 className={classes.chatBubleActive} />                                                                                                                                                                                                                                                                                      
-                                                                                        </CardContent>   <div id={'el'} ref={el}></div>                                                                                                                                                                        
+                                                                                        </CardContent>   
+                                                                                                {chatAgain}
+                                                                                        {/* scroll to this div */}
+                                                                                        <div id={'el'} ref={el}></div>                                                                                                                                                                     
                                                                                     </div>
                                                                                 )}
                                                                             </Spring>                                                                            

@@ -62,7 +62,7 @@ function ChatContact() {
     const classes = useStyles();
     const el = useRef(null);
     useEffect(() => {
-        el.current.scrollIntoView({block: 'end', behavior: 'smooth', inline: 'nearest' });
+        el.current.scrollIntoView({behavior: 'smooth'});
     });
     
     const redirectLinkedIn = () => {
@@ -152,7 +152,10 @@ function ChatContact() {
                                                                                                 <div style={props}>                                                                                        
                                                                                                     <CardContent className={classes.chatBubleMargin}>
                                                                                                         <Chip icon={<MailIcon className={classes.iconMailColor}/>} label="Email me" onClick={redirectEmail} className={classes.chatBubleActive} />
-                                                                                                    </CardContent><div id={'el'} ref={el}></div>                                                                                   
+                                                                                                    </CardContent>
+                                                                                                    
+                                                                                                    {/*scroll to this div */}
+                                                                                                    <div id={'el'} ref={el}></div>                                                                                   
                                                                                                 </div>
                                                                                             )}
                                                                                         </Spring>                                                                                 

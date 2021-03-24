@@ -1,18 +1,13 @@
-import React, {useState} from 'react';
+/* eslint-disable no-lone-blocks */
+import React from 'react';
 import { makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
 import Avatar from '@material-ui/core/Avatar';
-import { red } from '@material-ui/core/colors';
 import avatarImg from '../images/pozaCV.jpg';
-import Chip from '@material-ui/core/Chip';
-import Hello from './ChatBot/ChatHello';
-import ChatContact from './ChatBot/ChatContact';
 import TrackVisibility from 'react-on-screen';
-
-
+import InitialChat from './ChatBot/InitialChat';
 
 
 
@@ -33,11 +28,7 @@ function Contact() {
             transition: theme.transitions.create('transform', {
                 duration: theme.transitions.duration.shortest,
             }),
-        },
-          
-        avatar: {
-            backgroundColor: red[500],
-        },
+        },                 
         chatGrid: {
             display: 'flex',
             flexDirection: 'column',
@@ -46,17 +37,15 @@ function Contact() {
             marginTop: theme.spacing(6),
             marginBottom: theme.spacing(6)            
         },
-        chatHeader: {
-            backgroundColor: '#F5F5F5',            
+        chatHeader: {            
+            backgroundColor: '#F5F5F5',  
+            height: 40,              
         },
         chat: {            
             width: 400,
             minHeight: 500,
-            maxHeight: 500,
-        },
-        chatHidden: {
-            display: 'none'
-        },
+            maxHeight: 500,            
+        },        
         chatBubleInactive: {
             background: '#4c4c4d',
             color: '#F5F5F5',
@@ -82,7 +71,7 @@ function Contact() {
         chatWindow: {
             maxHeight: 450,
             minHeight: 450,
-            overflow: 'auto',            
+            overflow: 'auto',                      
         },
         chatBot: {
             float: 'left'
@@ -94,84 +83,25 @@ function Contact() {
             height: 40
         }
       }));
-        const classes = useStyles();
-        const [chatAnswer, setChatAnswer] = useState(true); 
-        const [chatContact, setChatContact] = useState(true);   
+        const classes = useStyles();        
         
+        {/*get's returned only when visible on screen */}
         const TitleAnimation = () => {
             return (
             <div className="animation-box2">
                 <div className="box">
                     <div className="title1">
                         <span className="block"></span>
-                        <h1>Work<span className='dot'></span></h1>
+                        <h1>Contact<span className='dot'></span></h1>
                     </div>
                 </div>
             </div>
         )}
-    
-        const animation = ({ isVisible }) => {           
+        
+        {/* animation trigger */}
+        const animationTrigger = ({ isVisible }) => {           
             return isVisible ? <TitleAnimation /> : <div className='animation-box'></div>;
         }
-
-        //intro messages
-        const hi = (
-            <div>
-            <CardContent className={classes.chatBubleMargin}>
-                <Chip label="Hi! I'm Bogdan Bot 🤖" className={classes.chatBubleInactive} />
-            </CardContent>
-            <CardContent className={classes.chatBubleMargin}>
-                <Chip label="I’m just like Bogdan, but a far better conversationalist 😉" className={classes.chatBubleInactive} />
-            </CardContent>
-            <CardContent className={classes.chatBubleMargin}>
-                <Chip label="How can I help you today?" className={classes.chatBubleInactive} />
-            </CardContent></div>
-        );
-
-        const  predefinedHello = (
-            <CardContent className={classes.chatBubleMargin}>
-                <Chip 
-                    label="👋 I just wanted to say hello!" 
-                    onClick={() => {                                                                        
-                        setChatAnswer(() => {                                                                                           
-                            return(
-                                <div>
-                                    {chatAnswer ?                                                     
-                                    <div>                                                        
-                                        <Hello />                                                        
-                                    </div>
-                                    : ''}                                                
-                                </div>
-                            )
-                        });                                                                                                                    
-                    }} 
-                    className={classes.chatBubleActive} 
-                />
-            </CardContent>
-        )
-
-        const assetMessage = (
-            <CardContent className={classes.chatBubleMargin}>
-                <Chip 
-                    label="😁 Think i could be an asset to your company?" 
-                    onClick={() => {
-                        setChatContact(() => {
-                            return(
-                                <div>
-                                    {chatContact ? 
-                                    <div>
-                                        <ChatContact />
-                                    </div>
-                                    : ''}
-                                </div>                                                
-                            )
-                        });
-                    }} 
-                     className={classes.chatBubleActive} 
-                />
-            </CardContent>
-        )
-        
         
     return(
         <div className={classes.root}>
@@ -180,37 +110,29 @@ function Contact() {
             <Grid container item xs={12} justify="center">
                     {/*title animation */}
                     <TrackVisibility>
-                        {animation}
+                        {animationTrigger}
                     </TrackVisibility>
             </Grid>
 
+            {/* chat grid */}
             <Grid container className={classes.chatGrid}>
-                <Card className={classes.chat}>
-                    <Grid item xs={12}>
-                        <CardHeader
-                            avatar={
-                                <Avatar alt="Cozma Bogdan" src={avatarImg} className={classes.avatar} />                           
-                            }                        
-                            title="Bogdan Bot"
-                            subheader="Ask me a question!"
-                            className={classes.chatHeader}
-                        /> 
-                    </Grid>  
-                    <Grid item xs={12}>
-                        <div className={classes.chatWindow}>                    
-                            <div className={classes.chatBot}>
-                                {/*intro messages*/}
-                                {hi}   
-                                {/*predefined hello message */}
-                                {predefinedHello}
-                                {/*asset message */}
-                                {assetMessage}
-                            </div>                        
-                            {chatAnswer}   
-                            {chatContact}                                                                                                                                 
-                        </div>  
-                    </Grid>                                                                                    
-                </Card>
+                <Grid container item xs={12} justify='center'>
+                    <Card className={classes.chat}>
+                        <Grid item xs={12}>
+                            <CardHeader
+                                avatar={
+                                    <Avatar alt="Cozma Bogdan" src={avatarImg} />                           
+                                }                        
+                                title="Bogdan Bot"
+                                subheader="Ask me a question!" 
+                                className={classes.chatHeader}                          
+                            /> 
+                        </Grid>  
+                        <Grid item xs={12} className={classes.chatWindow}>                            
+                            <InitialChat />                              
+                        </Grid>                                                                                    
+                    </Card>
+                </Grid>
             </Grid>
         </div>
     )

@@ -64,7 +64,7 @@ function App() {
               <Typography variant="h2" gutterBottom className={classes.h2}>
                 I'm a full-stack web developer.
               </Typography>
-              <Button href='/contact' onMouseOver={changeArrow} onMouseOut={changeArrowBack} variant={onHover ? "contained" : "outlined"} color="primary" size="large" className={classes.button}>View my work {onHover ? <ArrowDownwardIcon/> : <ArrowForwardIcon/>}</Button>
+              <Button href='/work' onMouseOver={changeArrow} onMouseOut={changeArrowBack} variant={onHover ? "contained" : "outlined"} color="primary" size="large" className={classes.button}>View my work {onHover ? <ArrowDownwardIcon/> : <ArrowForwardIcon/>}</Button>
               </div>
             </Container>          
         </Grid> 
