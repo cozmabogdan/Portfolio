@@ -1,7 +1,5 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
 import Button from '@material-ui/core/Button';
 import { makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -16,66 +14,77 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import clsx from 'clsx';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkIcon from '@material-ui/icons/Link';
-import img1 from '../images/project1.jpeg';
-import img2 from '../images/project2.jpeg';
-import About from '../components/About';
-import Contact from './Contact';
+import cabinetPsihologie from '../images/cabinetPsihologie - Home(3).png';
+import purpleEverGlow from '../images/PurpleEverGlow - Home.png';
+import TrackVisibility from 'react-on-screen';
+
+
 
 function NavBar(){
     const useStyles = makeStyles((theme) => ({
-        root: {
-          flexGrow: 1,
+        root: {          
           height: '100vh'
         },
         media: {
-            height: 400,              
+            height: 400,
+                                  
         },
         avatar: {
             backgroundColor: '#d83637',
         },
         button: {
             margin: theme.spacing(2)
+        },
+        textFontSize: {
+            fontSize: '16px'
+        },
+        paragraph: {
+            height: 70
+        },
+        paragraphHeight: {
+            height: 60
         }
-      }));
-      const classes = useStyles();
-      const [expanded1, setExpanded1] = React.useState(false);
-      const [expanded2, setExpanded2] = React.useState(false);
+    }));
+    const classes = useStyles();
+    const [expanded1, setExpanded1] = React.useState(false);
+    const [expanded2, setExpanded2] = React.useState(false); 
 
-      const handleExpandClick1 = () => {
-          setExpanded1(!expanded1);
-      };
-      const handleExpandClick2 = () => {
-          setExpanded2(!expanded2);
-      }
-      
-    return (
-        <div className={classes.root}>
-            <React.Fragment>
-            <AppBar position='sticky' className='navbar'>
-                <Toolbar className='navbar-item'>
-                    <Typography variant="h6" className='navbar-item'>
-                        <Button size="large"><a href="home" className='navbar-btn'>Home</a></Button>
-                    </Typography>
-                    <Typography variant="h6" className='navbar-item'>
-                        <Button size="large"><a href='work' className='navbar-btn'>Work</a></Button>
-                    </Typography>
-                    <Typography variant="h6" className='navbar-item'>
-                        <Button size="large"><a href='about' className='navbar-btn'>About</a></Button>
-                    </Typography>
-                    <Typography variant="h6" className='navbar-item'>
-                        <Button size="large"><a href='contact' className='navbar-btn'>Contact</a></Button>
-                    </Typography>
-                </Toolbar>
-            </AppBar>
-            <div className="animation-box">
-                <div className="box">
-                    <div className="title">
-                        <span className="block"></span>
-                        <h1>Projects<span className='dot'></span></h1>
-                    </div>
+    const TitleAnimation = () => {
+        return (
+        <div className="animation-box">
+            <div className="box">
+                <div className="title">
+                    <span className="block"></span>
+                    <h1>Work<span className='dot'></span></h1>
                 </div>
             </div>
+        </div>
+    )}
+
+    const animation = ({ isVisible }) => {           
+        return isVisible ? <TitleAnimation /> : <div className='animation-box'></div>;
+    }
+    
+    const handleExpandClick1 = () => {
+        setExpanded1(!expanded1);
+    };
+    const handleExpandClick2 = () => {
+        setExpanded2(!expanded2);
+    }
+      
+    return (
+        <div className={classes.root}>  
+
+                                   
+
             <Grid container>
+                <Grid container item xs={12} justify="center">
+                    {/*title animation */}
+                    <TrackVisibility>
+                        {animation}
+                    </TrackVisibility>
+                </Grid>
+
                 <Grid item xs={6}> 
                     <Card className='card-style'>
                     <CardHeader
@@ -89,33 +98,24 @@ function NavBar(){
                     <CardMedia
                         className={classes.media}   
                         component='img'             
-                        src={img1}
+                        src={cabinetPsihologie}
                         title="Cabinet Psihologie"
                     ></CardMedia>
-                    <CardContent>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et erat diam. Nullam sed urna a ante bibendum aliquet eu sed ipsum. Sed congue volutpat arcu, eu tempor massa ornare eget. Donec scelerisque auctor metus, vel interdum leo sollicitudin et. Maecenas congue augue orci, in tempor felis consequat viverra.
+                    <CardContent className={classes.paragraphHeight}>
+                        <Typography variant="body2" color="textSecondary" component="p" className={classes.textFontSize}>
+                            A website for a local psychology praxis working with adults , kids diagnosed with Down syndrome, ADHD, autism, etc , educational and family counseling, personal development, speach therapy, counselling for people with disabilities.
                         </Typography>
                     </CardContent>
                     <CardActions disableSpacing>
-                        <Button className={classes.button} startIcon={<GitHubIcon />}>GitHub</Button>                        
-                        <Button className={classes.button}  startIcon={<LinkIcon />} href="www.cabinetpsihologie.org">Live Demo</Button>
+                        <Button className={classes.button} startIcon={<GitHubIcon />} href="https://github.com/cozmabogdan/Cabinet-Psihologie">GitHub</Button>                        
+                        <Button className={classes.button}  startIcon={<LinkIcon />} href="http://www.cabinetpsihologie.org/">Live Demo</Button>
                         <Button onClick={handleExpandClick1} aria-expanded={expanded1} className={clsx(classes.expanded, {[classes.expandOpen]: expanded1})} startIcon={<ExpandMoreIcon />}>{expanded1 ? 'Show Less' : 'Show More'}</Button>                        
                     </CardActions>
                     <Collapse in={expanded1} timeout="auto" unmountOnExit>
-                        <CardContent>
-                        <Typography paragraph>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et erat diam. Nullam sed urna a ante bibendum aliquet eu sed ipsum. Sed congue volutpat arcu, eu tempor massa ornare eget. Donec scelerisque auctor metus, vel interdum leo sollicitudin et. Maecenas congue augue orci, in tempor felis consequat viverra.
-                        </Typography>
-                        <Typography paragraph>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et erat diam. Nullam sed urna a ante bibendum aliquet eu sed ipsum. Sed congue volutpat arcu, eu tempor massa ornare eget. Donec scelerisque auctor metus, vel interdum leo sollicitudin et. Maecenas congue augue orci, in tempor felis consequat viverra.
-                        </Typography>
-                        <Typography paragraph>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et erat diam. Nullam sed urna a ante bibendum aliquet eu sed ipsum. Sed congue volutpat arcu, eu tempor massa ornare eget. Donec scelerisque auctor metus, vel interdum leo sollicitudin et. Maecenas congue augue orci, in tempor felis consequat viverra.
-                        </Typography>
-                        <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et erat diam. Nullam sed urna a ante bibendum aliquet eu sed ipsum. Sed congue volutpat arcu, eu tempor massa ornare eget. Donec scelerisque auctor metus, vel interdum leo sollicitudin et. Maecenas congue augue orci, in tempor felis consequat viverra.
-                        </Typography>
+                        <CardContent className={classes.paragraph}>
+                            <Typography paragraph>
+                                I made the website using the EJS template and Bootstrap for Front-End. For the Back-End I used the Express framework and Express-session to transfer data between the client and the server. For the database I used Mongoose. For authentication I used passport. 
+                            </Typography>
                         </CardContent>
                     </Collapse>
                     </Card>
@@ -134,45 +134,30 @@ function NavBar(){
                     <CardMedia
                         className={classes.media}
                         component='img'             
-                        src={img2}
+                        src={purpleEverGlow}
                         title="PurpleEverGlow"
                     />
-                    <CardContent>
-                        <Typography variant="body2" color="textSecondary" component="p">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et erat diam. Nullam sed urna a ante bibendum aliquet eu sed ipsum. Sed congue volutpat arcu, eu tempor massa ornare eget. Donec scelerisque auctor metus, vel interdum leo sollicitudin et. Maecenas congue augue orci, in tempor felis consequat viverra.
+                    <CardContent className={classes.paragraphHeight}>
+                        <Typography variant="body2" color="textSecondary" className={classes.textFontSize} component="p">
+                        A personal blog for a young psychologist, who wants to emphasis the need for emotional education in the world.
                         </Typography>
                     </CardContent>
                     <CardActions disableSpacing>
-                        <Button className={classes.button} startIcon={<GitHubIcon />}>GitHub</Button>                        
-                        <Button className={classes.button}  startIcon={<LinkIcon />}>Live Demo</Button>
+                        <Button className={classes.button} startIcon={<GitHubIcon />} href="http://www.cabinetpsihologie.org/">GitHub</Button>                        
+                        <Button className={classes.button}  startIcon={<LinkIcon />} href="http://www.purpleeverglow.com/">Live Demo</Button>
                         <Button onClick={handleExpandClick2} aria-expanded={expanded2} className={clsx(classes.expanded, {[classes.expandOpen]: expanded2})} startIcon={<ExpandMoreIcon />}>{expanded2 ? 'Show Less' : 'Show More'}</Button>                         
                     </CardActions>
                     <Collapse in={expanded2} timeout="auto" unmountOnExit>
-                        <CardContent>
+                        <CardContent className={classes.paragraph}>
                         <Typography paragraph>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et erat diam. Nullam sed urna a ante bibendum aliquet eu sed ipsum. Sed congue volutpat arcu, eu tempor massa ornare eget. Donec scelerisque auctor metus, vel interdum leo sollicitudin et. Maecenas congue augue orci, in tempor felis consequat viverra.
-                        </Typography>
-                        <Typography paragraph>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et erat diam. Nullam sed urna a ante bibendum aliquet eu sed ipsum. Sed congue volutpat arcu, eu tempor massa ornare eget. Donec scelerisque auctor metus, vel interdum leo sollicitudin et. Maecenas congue augue orci, in tempor felis consequat viverra.
-                        </Typography>
-                        <Typography paragraph>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et erat diam. Nullam sed urna a ante bibendum aliquet eu sed ipsum. Sed congue volutpat arcu, eu tempor massa ornare eget. Donec scelerisque auctor metus, vel interdum leo sollicitudin et. Maecenas congue augue orci, in tempor felis consequat viverra.
-                        </Typography>
-                        <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum et erat diam. Nullam sed urna a ante bibendum aliquet eu sed ipsum. Sed congue volutpat arcu, eu tempor massa ornare eget. Donec scelerisque auctor metus, vel interdum leo sollicitudin et. Maecenas congue augue orci, in tempor felis consequat viverra.
-                        </Typography>
+                            The website was made using EJS template and CSS for style. I used the Express framework with Mongoose for the scheme-bases model of the application. For authentication I used passport do add Cookies and Sessions. To upload images to the Database I used Multer and Base64 to encode it. For the Contact form I used nodemailer. 
+                        </Typography>                        
                         </CardContent>
                     </Collapse>
                     </Card>
                 </Grid>
-                <Grid item xs={12}>
-                    <About />
-                </Grid>
-                <Grid item xs={12}>
-                    <Contact />
-                </Grid>
-            </Grid>
-            </React.Fragment>
+                
+            </Grid>           
         </div>                       
     )
 }

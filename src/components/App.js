@@ -7,6 +7,11 @@ import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import Work from './Work';
 import Grid from '@material-ui/core/Grid';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import About from './About';
+import Contact from './Contact';
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
 
 
@@ -27,6 +32,7 @@ function App() {
       justifyContent: 'center',
       marginLeft: 'auto',
       marginRight: 'auto',
+      width: 200
     },
     name: {
       color: '#d83637',
@@ -43,9 +49,12 @@ function App() {
   }
 
   return (
-    <div className={classes.root}>
+    <Router>
+    <div className={classes.root}>         
+      <Switch>
       <Grid container>
         {/* welcome page */}
+        <Route path='/' exact component={App}>
         <Grid item xs={12} className='container'>
             <Container>
               <div id='home'>
@@ -55,18 +64,55 @@ function App() {
               <Typography variant="h2" gutterBottom className={classes.h2}>
                 I'm a full-stack web developer.
               </Typography>
-              <Button onMouseOver={changeArrow} onMouseOut={changeArrowBack} variant={onHover ? "contained" : "outlined"} color="primary" size="large" className={classes.button}>View my work {onHover ? <ArrowDownwardIcon/> : <ArrowForwardIcon/>}</Button>
+              <Button href='/contact' onMouseOver={changeArrow} onMouseOut={changeArrowBack} variant={onHover ? "contained" : "outlined"} color="primary" size="large" className={classes.button}>View my work {onHover ? <ArrowDownwardIcon/> : <ArrowForwardIcon/>}</Button>
               </div>
             </Container>          
         </Grid> 
-        {/* projects section */}
-        <Grid item xs={12}>    
-          <Work /> 
-        </Grid>
+        </Route>
         
+        <React.Fragment>
+
+          {/* navbar */}
+          <AppBar position='sticky' className='navbar'>
+            <Toolbar className='navbar-item'>
+                <Typography variant="h6" className='navbar-item'>
+                    <Button size="large"><a href="/" className='navbar-btn'>Home</a></Button>
+                </Typography>
+                <Typography variant="h6" className='navbar-item'>
+                    <Button size="large"><a href='/work' className='navbar-btn'>Work</a></Button>
+                </Typography>
+                <Typography variant="h6" className='navbar-item'>
+                    <Button size="large"><a href='/about' className='navbar-btn'>About</a></Button>
+                </Typography>
+                <Typography variant="h6" className='navbar-item'>
+                    <Button size="large"><a href='/contact' className='navbar-btn'>Contact</a></Button>
+                </Typography>
+            </Toolbar>
+          </AppBar>   
+        
+        {/* work component */}
+        <Grid item xs={12}> 
+          <Route path='/work' component={Work} />
+            <Work />                          
+        </Grid>
+
+        {/* about component */}
+        <Grid item xs={12}>
+          <Route path='/about' component={About} />
+            <About />        
+        </Grid>
+
+        {/* contact component */}
+        <Grid item xs={12}>
+          <Route path='/contact' component={Contact} />
+            <Contact />         
+        </Grid>
+
+        </React.Fragment>
       </Grid>
+      </Switch>        
     </div>
-    
+    </Router>
   );
 }
 

@@ -47,6 +47,15 @@ function ChatContact() {
             padding: '10px',
             borderRadius: 15,
             marginBottom: '15px'
+        },
+        iconFacebookColor: {
+            color: '#4967aa'
+        },
+        iconLinkedInColor: {
+            color: '#0477b5'
+        },
+        iconMailColor: {
+            color: '#1c9adb'
         }
     }));
       
@@ -122,7 +131,7 @@ function ChatContact() {
                                                                     {props => (
                                                                         <div style={props}>
                                                                             <CardContent className={classes.chatBubleMargin}>
-                                                                                <Chip icon={<LinkedInIcon />} label="LinkedIn" onClick={redirectLinkedIn} className={classes.chatBubleActive} />
+                                                                                <Chip icon={<LinkedInIcon className={classes.iconLinkedInColor}/>} label="LinkedIn" onClick={redirectLinkedIn} className={classes.chatBubleActive} />
                                                                             </CardContent>
                                                                             <Spring
                                                                                 from={{marginLeft: -300}}
@@ -132,7 +141,7 @@ function ChatContact() {
                                                                                 {props =>(
                                                                                     <div style={props}>                                                                                        
                                                                                         <CardContent className={classes.chatBubleMargin}>
-                                                                                            <Chip icon={<FacebookIcon />} label="Facebook" onClick={redirectFacebook} className={classes.chatBubleActive} />
+                                                                                            <Chip icon={<FacebookIcon className={classes.iconFacebookColor}/>} label="Facebook" onClick={redirectFacebook} className={classes.chatBubleActive} />
                                                                                         </CardContent>  
                                                                                         <Spring
                                                                                             from={{marginLeft: -300}}
@@ -142,7 +151,7 @@ function ChatContact() {
                                                                                             {props =>(
                                                                                                 <div style={props}>                                                                                        
                                                                                                     <CardContent className={classes.chatBubleMargin}>
-                                                                                                        <Chip icon={<MailIcon />} label="Email me" onClick={redirectEmail} className={classes.chatBubleActive} />
+                                                                                                        <Chip icon={<MailIcon className={classes.iconMailColor}/>} label="Email me" onClick={redirectEmail} className={classes.chatBubleActive} />
                                                                                                     </CardContent><div id={'el'} ref={el}></div>                                                                                   
                                                                                                 </div>
                                                                                             )}

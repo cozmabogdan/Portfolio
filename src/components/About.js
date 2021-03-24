@@ -15,6 +15,8 @@ import jqueryIcon from '../images/jquery.png';
 import pythonIcon from '../images/python.png';
 import apiIcon from '../images/API.png';
 import mongoIcon from '../images/mongo.png';
+import Button from '@material-ui/core/Button';
+import TrackVisibility from 'react-on-screen';
 
 
 
@@ -25,9 +27,8 @@ function About(){
         root: {
             flexGrow: 1,
             height: '100vh',
-            backgroundColor: '#F5F5F5',
-            marginTop: theme.spacing(7)
-          },
+            backgroundColor: '#F5F5F5',            
+        },        
         large: {            
             width: '300px',
             height: '300px',
@@ -41,8 +42,7 @@ function About(){
             alignContent: 'center',
             justifyContent: 'center',
             marginBottom: '1rem',
-            marginLeft: theme.spacing(5),
-            marginRight: theme.spacing(5)
+            
         },
         about: {
             marginBottom: '1rem',
@@ -68,6 +68,11 @@ function About(){
             margin: theme.spacing(4),            
             width: '160px'
         },
+        skillTitle: {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+        },
         skillDesign: {
             fonstSize: 14,
         },
@@ -83,10 +88,12 @@ function About(){
             padding: theme.spacing(2),
             margin: 'auto',
             masWidth: 500
-        },
+        },        
         grid: {
             marginTop: 'auto',
             marginBottom: 'auto',
+            marginLeft: theme.spacing(6),
+            marginRight: theme.spacing(6)
         },
         avatarSkill: {            
             width: '25px',
@@ -111,150 +118,202 @@ function About(){
             borderLeft: '50px solid transparent',
             borderRight: '50px solid transparent',
             borderTop: '100px solid red'
-        }
-      }));
-      const classes = useStyles();
+        },
+    }));
+    const classes = useStyles();
+
+    const TitleAnimation = () => {
+        return (
+        <div className="animation-box1">
+            <div className="box">
+                <div className="title">
+                    <span className="block"></span>
+                    <h1>About<span className='dot'></span></h1>
+                </div>
+            </div>
+        </div>
+    )}
+
+    const animation = ({ isVisible }) => {           
+        return isVisible ? <TitleAnimation /> : <div className='animation-box1'></div>;
+    }
+
+    const Description = () => {
+          return(
+            <React.Fragment>
+                <Grid item xs={12}>
+                    <Avatar alt="Cozma Bogdan" src={avatarImg} className={classes.large} />
+                </Grid>
+                <Grid item xs={12}>
+                    <Typography variant="h4" className={classes.title}>Who's this guy?</Typography> 
+                 </Grid>
+                <Grid item xs={12}>
+                    <Typography className={classes.about}>I'm a Full-Stacked developer with a serious passion for Web Development. These days I spend my time expanding my knowledge.</Typography>                     
+                </Grid>    
+                <Grid item xs={12}>
+                    <Typography className={classes.contact}><Button className={classes.contact} href="/contact">Let's make something special</Button> </Typography>               
+                </Grid>
+            </React.Fragment>
+          );
+    }
+
+    const SkillRowOne = () => {
+          return(
+            <React.Fragment>
+                <Grid item xs={12} className={classes.skill}>
+                    <Card className={classes.skillCard}>
+                        <Avatar
+                            variant='square'
+                            className={classes.avatarSkill}
+                            src={cssIcon}
+                        />                                                     
+                        <Typography component="h5" variant="h5">
+                            CSS
+                        </Typography>                                                                                                                                   
+                    </Card>
+                </Grid>
+                <Grid item xs={12} className={classes.skill}>
+                    <Card className={classes.skillCard}>
+                        <Avatar
+                            variant='square'
+                            className={classes.avatarSkill}
+                            src={htmlIcon}
+                        />                                                     
+                        <Typography component="h5" variant="h5">
+                            HTML
+                        </Typography>                                                                                                                                   
+                    </Card>
+                </Grid>
+                <Grid item xs={12} className={classes.skill}>
+                    <Card className={classes.skillCard}>
+                        <Avatar
+                            variant='square'
+                            className={classes.avatarSkill}
+                            src={reactIcon}
+                        />                                                     
+                        <Typography component="h5" variant="h5">
+                            React
+                        </Typography>                                                                                                                                   
+                    </Card>
+                </Grid>
+                <Grid item xs={12} className={classes.skill}>
+                    <Card className={classes.skillCard}>
+                        <Avatar
+                            variant='square'
+                            className={classes.avatarSkill}
+                            src={javascriptIcon}
+                        />                                                     
+                        <Typography component="h5" variant="h5">
+                            JavaScript
+                        </Typography>                                                                                                                                   
+                    </Card>
+                </Grid>
+                <Grid item xs={12} className={classes.skill}>
+                    <Card className={classes.skillCard}>
+                        <Avatar
+                            variant='square'
+                            className={classes.avatarSkill}
+                            src={nodejsIcon}
+                        />                                                     
+                        <Typography component="h5" variant="h5">
+                            NodeJS
+                        </Typography>                                                                                                                                   
+                    </Card>
+                </Grid> 
+            </React.Fragment>
+          )
+    }
+
+    const SkillRowTwo = () => {
+          return(
+            <React.Fragment>
+                <Grid item xs={12} className={classes.skill}>
+                    <Card className={classes.skillCard}>
+                        <Avatar
+                            variant='square'
+                            className={classes.avatarSkill}
+                            src={bootstrapIcon}
+                        />                                                     
+                        <Typography component="h5" variant="h5">
+                            Bootstrap
+                        </Typography>                                                                                                                                   
+                    </Card>
+                </Grid>
+                <Grid item xs={12} className={classes.skill}>
+                    <Card className={classes.skillCard}>
+                        <Avatar
+                            variant='square'
+                            className={classes.avatarSkill}
+                            src={jqueryIcon}
+                        />                                                     
+                        <Typography component="h5" variant="h5">
+                            jQuery
+                        </Typography>                                                                                                                                   
+                    </Card>
+                </Grid>
+                <Grid item xs={12} className={classes.skill}>
+                    <Card className={classes.skillCard}>
+                        <Avatar
+                            variant='square'
+                            className={classes.avatarSkill}
+                            src={pythonIcon}
+                        />                                                     
+                        <Typography component="h5" variant="h5">
+                            Python
+                        </Typography>                                                                                                                                   
+                    </Card>
+                </Grid>
+                <Grid item xs={12} className={classes.skill}>
+                    <Card className={classes.skillCard}>
+                        <Avatar
+                            variant='square'
+                            className={classes.avatarSkill}
+                            src={apiIcon}
+                        />                                                     
+                        <Typography component="h5" variant="h5">
+                            API
+                        </Typography>                                                                                                                                   
+                    </Card>
+                </Grid>
+                <Grid item xs={12} className={classes.skill}>
+                    <Card className={classes.skillCard}>
+                        <Avatar
+                            variant='square'
+                            className={classes.avatarSkill}
+                            src={mongoIcon}
+                        />                                                     
+                        <Typography component="h5" variant="h5">
+                            MongoDB
+                        </Typography>                                                                                                                                   
+                    </Card>
+                </Grid>
+            </React.Fragment>
+          )
+    }
+
     return(
         <div className={classes.root}>
-            <Grid container>
-                <div className="animation-box1">
-                    <div className="box">
-                    <div className="title">
-                            <span className="block"></span>
-                            <h1>About<span className='dot'></span></h1>
-                        </div>
-                    </div>
-                </div>
-                <Grid item xs={5}>
-                    <Avatar alt="Cozma Bogdan" src={avatarImg} className={classes.large} />
-                    <Typography variant="h4" className={classes.title}>Who's this guy?</Typography> 
-                    <Typography className={classes.about}>I'm a Full-Stacked developer with a serious passion for Web Development. These days I spend my time expanding my knowledge.</Typography> 
-                    <Typography className={classes.contact}>Let's make something special</Typography>                  
+            {/* title animation */}
+            
+            <Grid container spacing={1}>                
+                <Grid container item xs={12} justify="center">
+                    <TrackVisibility>
+                        {animation}
+                    </TrackVisibility>
+                </Grid>
+                {/*Description column */}
+                <Grid container item xs={4} direction="column">
+                    <Description />
                 </Grid>                  
-                <Typography variant="h2" className={classes.title}>Skills</Typography> 
-                <Grid item xs={2} className={classes.grid}>   
-                    <Grid item xs={12} className={classes.skill}>
-                        <Card className={classes.skillCard}>
-                            <Avatar
-                                variant='square'
-                                className={classes.avatarSkill}
-                                src={cssIcon}
-                            />                                                     
-                            <Typography component="h5" variant="h5">
-                                CSS
-                            </Typography>                                                                                                                                   
-                        </Card>
-                    </Grid>
-                    <Grid item xs={12} className={classes.skill}>
-                        <Card className={classes.skillCard}>
-                            <Avatar
-                                variant='square'
-                                className={classes.avatarSkill}
-                                src={htmlIcon}
-                            />                                                     
-                            <Typography component="h5" variant="h5">
-                                HTML
-                            </Typography>                                                                                                                                   
-                        </Card>
-                    </Grid>
-                    <Grid item xs={12} className={classes.skill}>
-                        <Card className={classes.skillCard}>
-                            <Avatar
-                                variant='square'
-                                className={classes.avatarSkill}
-                                src={reactIcon}
-                            />                                                     
-                            <Typography component="h5" variant="h5">
-                                React
-                            </Typography>                                                                                                                                   
-                        </Card>
-                    </Grid>
-                    <Grid item xs={12} className={classes.skill}>
-                        <Card className={classes.skillCard}>
-                            <Avatar
-                                variant='square'
-                                className={classes.avatarSkill}
-                                src={javascriptIcon}
-                            />                                                     
-                            <Typography component="h5" variant="h5">
-                                JavaScript
-                            </Typography>                                                                                                                                   
-                        </Card>
-                    </Grid>
-                    <Grid item xs={12} className={classes.skill}>
-                        <Card className={classes.skillCard}>
-                            <Avatar
-                                variant='square'
-                                className={classes.avatarSkill}
-                                src={nodejsIcon}
-                            />                                                     
-                            <Typography component="h5" variant="h5">
-                                NodeJS
-                            </Typography>                                                                                                                                   
-                        </Card>
-                    </Grid>                                
-                </Grid>  
-                <Grid item xs={2} className={classes.grid}>
-                    <Grid item xs={12} className={classes.skill}>
-                        <Card className={classes.skillCard}>
-                            <Avatar
-                                variant='square'
-                                className={classes.avatarSkill}
-                                src={bootstrapIcon}
-                            />                                                     
-                            <Typography component="h5" variant="h5">
-                                Bootstrap
-                            </Typography>                                                                                                                                   
-                        </Card>
-                    </Grid>
-                    <Grid item xs={12} className={classes.skill}>
-                        <Card className={classes.skillCard}>
-                            <Avatar
-                                variant='square'
-                                className={classes.avatarSkill}
-                                src={jqueryIcon}
-                            />                                                     
-                            <Typography component="h5" variant="h5">
-                                jQuery
-                            </Typography>                                                                                                                                   
-                        </Card>
-                    </Grid>
-                    <Grid item xs={12} className={classes.skill}>
-                        <Card className={classes.skillCard}>
-                            <Avatar
-                                variant='square'
-                                className={classes.avatarSkill}
-                                src={pythonIcon}
-                            />                                                     
-                            <Typography component="h5" variant="h5">
-                                Python
-                            </Typography>                                                                                                                                   
-                        </Card>
-                    </Grid>
-                    <Grid item xs={12} className={classes.skill}>
-                        <Card className={classes.skillCard}>
-                            <Avatar
-                                variant='square'
-                                className={classes.avatarSkill}
-                                src={apiIcon}
-                            />                                                     
-                            <Typography component="h5" variant="h5">
-                                API
-                            </Typography>                                                                                                                                   
-                        </Card>
-                    </Grid>
-                    <Grid item xs={12} className={classes.skill}>
-                        <Card className={classes.skillCard}>
-                            <Avatar
-                                variant='square'
-                                className={classes.avatarSkill}
-                                src={mongoIcon}
-                            />                                                     
-                            <Typography component="h5" variant="h5">
-                                MongoDB
-                            </Typography>                                                                                                                                   
-                        </Card>
-                    </Grid>
+
+                {/*First skill column */}
+                <Grid container item xs={4}>   
+                    <SkillRowOne />                                          
+                </Grid> 
+
+                {/*Second skill column */} 
+                <Grid container item xs={4}>
+                    <SkillRowTwo />
                 </Grid>                         
             </Grid>
         </div>

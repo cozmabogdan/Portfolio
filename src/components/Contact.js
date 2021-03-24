@@ -10,6 +10,7 @@ import avatarImg from '../images/pozaCV.jpg';
 import Chip from '@material-ui/core/Chip';
 import Hello from './ChatBot/ChatHello';
 import ChatContact from './ChatBot/ChatContact';
+import TrackVisibility from 'react-on-screen';
 
 
 
@@ -97,6 +98,22 @@ function Contact() {
         const [chatAnswer, setChatAnswer] = useState(true); 
         const [chatContact, setChatContact] = useState(true);   
         
+        const TitleAnimation = () => {
+            return (
+            <div className="animation-box2">
+                <div className="box">
+                    <div className="title1">
+                        <span className="block"></span>
+                        <h1>Work<span className='dot'></span></h1>
+                    </div>
+                </div>
+            </div>
+        )}
+    
+        const animation = ({ isVisible }) => {           
+            return isVisible ? <TitleAnimation /> : <div className='animation-box'></div>;
+        }
+
         //intro messages
         const hi = (
             <div>
@@ -159,14 +176,14 @@ function Contact() {
     return(
         <div className={classes.root}>
             <div className='shape'></div>
-            <div className="animation-box2">
-                <div className="box">
-                    <div className="title1">
-                        <span className="block"></span>
-                        <h1>Contact<span className='dot'></span></h1>
-                    </div>
-                </div>
-            </div>
+
+            <Grid container item xs={12} justify="center">
+                    {/*title animation */}
+                    <TrackVisibility>
+                        {animation}
+                    </TrackVisibility>
+            </Grid>
+
             <Grid container className={classes.chatGrid}>
                 <Card className={classes.chat}>
                     <Grid item xs={12}>

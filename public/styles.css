@@ -85,7 +85,16 @@ body {
   height: 50px;  
 }
 
-.title1 h1{
+.title1 {
+  color: #F5F5F5;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 50px;  
+}
+
+.title1 h1 {
   color: #F5F5F5;
 }
   
@@ -120,31 +129,15 @@ h1 {
   background: #d83637;
   -webkit-animation: load 0.6s cubic-bezier(.74, .06, .4, .92) forwards;
   animation: popIn 0.8s cubic-bezier(.74, .06, .4, .92) forwards;
+  animation-delay: 2s;
   margin-left: 5px;
   margin-top: -10px;
   position: absolute;
   bottom: 13px;
   right: -12px;
-}
+} 
 
 @keyframes mainBlock {
-  0% {
-    width: 0%;
-    left: 0;
-
-  }
-  50% {
-    width: 100%;
-    left: 0;
-
-  }
-  100% {
-    width: 0;
-    left: 100%;
-  }
-}
-
-@keyframes secBlock {
   0% {
     width: 0%;
     left: 0;
@@ -169,7 +162,6 @@ h1 {
     opacity: 1;
   }
 }
-
 
 @keyframes popIn {
   0% {
@@ -203,15 +195,6 @@ h1 {
     background: #d83637;
     border: 0px solid #222;
     bottom: 13px;
-  }
-}
-
-@keyframes secFadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 0.5;
   }
 }
  
@@ -266,6 +249,11 @@ h1 {
 
 #chat-bubble {
   transition: width 2s linear 1s;
+}
+
+/*style for responsive design for desktop*/
+@media only screen and (max-width: 1200px) {
+
 }
 
 
