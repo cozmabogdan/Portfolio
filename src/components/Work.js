@@ -75,8 +75,6 @@ function NavBar(){
     return (
         <div className={classes.root}>  
 
-                                   
-
             <Grid container>
                 <Grid container item xs={12} justify="center">
                     {/*title animation */}
@@ -85,7 +83,8 @@ function NavBar(){
                     </TrackVisibility>
                 </Grid>
 
-                <Grid item xs={6}> 
+                {/* left project card */}
+                <Grid container item xs={6}> 
                     <Card className='card-style'>
                     <CardHeader
                         avatar={
@@ -121,7 +120,8 @@ function NavBar(){
                     </Card>
                 </Grid>
 
-                <Grid item xs={6}> 
+                {/* right project card */}
+                <Grid item xs={6} container> 
                 <Card className='card-style'>
                     <CardHeader
                         avatar={

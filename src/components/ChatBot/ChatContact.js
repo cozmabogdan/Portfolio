@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import React, {useRef, useEffect} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import { Spring } from 'react-spring/renderprops';
@@ -39,15 +40,7 @@ function ChatContact() {
             backgroundColor: '#161b1d',
             color:'#f5f5f5',
             height: 40,            
-        },
-        chatBubbleForm: {
-            backgroundColor: '#161b1d',
-            color:'#f5f5f5',
-            height: '100px',
-            padding: '10px',
-            borderRadius: 15,
-            marginBottom: '15px'
-        },
+        },        
         iconFacebookColor: {
             color: '#4967aa'
         },
@@ -65,14 +58,17 @@ function ChatContact() {
         el.current.scrollIntoView({behavior: 'smooth'});
     });
     
+    {/* declaring LinkdId href */}
     const redirectLinkedIn = () => {
         window.location.href = "https://www.linkedin.com/in/cozma-bogdan-412333106/";
     }
 
+    {/* declaring Facebook href */}
     const redirectFacebook = () => {
         window.location.href = "https://www.facebook.com/cozma.bogdan.1023/";
     }
 
+    {/* declaring mail href */}
     const redirectEmail = () => {
         window.location.href = "mailto:bogdan.cozma1990@gmail.com";
     }

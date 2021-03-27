@@ -1,10 +1,12 @@
+/* eslint-disable no-lone-blocks */
 import React from 'react';
-import { makeStyles} from '@material-ui/core/styles';
+import { makeStyles} from '@material-ui/core/styles'; //material components
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Avatar from '@material-ui/core/Avatar';
 import Card from '@material-ui/core/Card';
-import avatarImg from '../images/pozaCV.jpg';
+import Button from '@material-ui/core/Button';
+import avatarImg from '../images/pozaCV.jpg'; //icons and images
 import cssIcon from '../images/css.png';
 import htmlIcon from '../images/html.png';
 import javascriptIcon from '../images/JavaScript.png';
@@ -15,7 +17,6 @@ import jqueryIcon from '../images/jquery.png';
 import pythonIcon from '../images/python.png';
 import apiIcon from '../images/API.png';
 import mongoIcon from '../images/mongo.png';
-import Button from '@material-ui/core/Button';
 import TrackVisibility from 'react-on-screen';
 
 
@@ -67,34 +68,7 @@ function About(){
             justifyContent: 'center',            
             margin: theme.spacing(4),            
             width: '160px'
-        },
-        skillTitle: {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-        },
-        skillDesign: {
-            fonstSize: 14,
-        },
-        skillContainer: {
-            width: '60%'
-        },
-        skillButton: {
-            backgroundColor: '#d83637',
-            width: '150px',
-            marginBottom: '1.5rem'
-        },
-        paper: {
-            padding: theme.spacing(2),
-            margin: 'auto',
-            masWidth: 500
-        },        
-        grid: {
-            marginTop: 'auto',
-            marginBottom: 'auto',
-            marginLeft: theme.spacing(6),
-            marginRight: theme.spacing(6)
-        },
+        },                                                       
         avatarSkill: {            
             width: '25px',
             height: '35px',
@@ -106,19 +80,7 @@ function About(){
             justifyContent: 'center',
             width: '200px',
             height:'50px',
-        },
-        details: {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-        },
-        shape: {
-            width: '100%',
-            height: '10vh',
-            borderLeft: '50px solid transparent',
-            borderRight: '50px solid transparent',
-            borderTop: '100px solid red'
-        },
+        }        
     }));
     const classes = useStyles();
 
@@ -138,6 +100,7 @@ function About(){
         return isVisible ? <TitleAnimation /> : <div className='animation-box1'></div>;
     }
 
+    {/* short description */}
     const Description = () => {
           return(
             <React.Fragment>
@@ -157,6 +120,7 @@ function About(){
           );
     }
 
+    {/* first column with skill cards */}
     const SkillRowOne = () => {
           return(
             <React.Fragment>
@@ -224,6 +188,7 @@ function About(){
           )
     }
 
+    {/* second column for skill cards */}
     const SkillRowTwo = () => {
           return(
             <React.Fragment>
@@ -271,7 +236,7 @@ function About(){
                             src={apiIcon}
                         />                                                     
                         <Typography component="h5" variant="h5">
-                            API
+                            RESTful API
                         </Typography>                                                                                                                                   
                     </Card>
                 </Grid>
@@ -293,14 +258,15 @@ function About(){
 
     return(
         <div className={classes.root}>
-            {/* title animation */}
-            
+
+            {/* title animation */}            
             <Grid container spacing={1}>                
                 <Grid container item xs={12} justify="center">
                     <TrackVisibility>
                         {animation}
                     </TrackVisibility>
                 </Grid>
+                
                 {/*Description column */}
                 <Grid container item xs={4} direction="column">
                     <Description />

@@ -17,18 +17,7 @@ function Contact() {
             flexGrow: 1,
             height: '100vh',
             backgroundColor: '#161b1d'
-        },
-        media: {
-            height: 0,
-            paddingTop: '56.25%', 
-        },
-        expand: {
-            transform: 'rotate(0deg)',
-            marginLeft: 'auto',
-            transition: theme.transitions.create('transform', {
-                duration: theme.transitions.duration.shortest,
-            }),
-        },                 
+        },                                 
         chatGrid: {
             display: 'flex',
             flexDirection: 'column',
@@ -55,33 +44,12 @@ function Contact() {
             backgroundColor: '#161b1d',
             color:'#f5f5f5',
             height: 40,            
-        },
-        chatBubleMargin: {
-            marginTop: theme.spacing(-1),
-        },
-        chatBubleAnswer: {
-            marginTop: theme.spacing(-1),
-            float: 'right',
-        },      
-        chatGridContainer: {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-        },
+        },                             
         chatWindow: {
             maxHeight: 450,
             minHeight: 450,
             overflow: 'auto',                      
-        },
-        chatBot: {
-            float: 'left'
-        },
-        chatUser: {
-            float: 'right'
-        },
-        chatBubleUserAnswer: {
-            height: 40
-        }
+        },                       
       }));
         const classes = useStyles();        
         
@@ -105,10 +73,11 @@ function Contact() {
         
     return(
         <div className={classes.root}>
+            {/* arrow shape */}
             <div className='shape'></div>
 
-            <Grid container item xs={12} justify="center">
-                    {/*title animation */}
+            {/*title animation */}
+            <Grid container item xs={12} justify="center">                    
                     <TrackVisibility>
                         {animationTrigger}
                     </TrackVisibility>

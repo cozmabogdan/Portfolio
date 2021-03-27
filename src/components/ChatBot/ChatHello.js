@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import React, {useState, useRef, useEffect} from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import { Spring } from 'react-spring/renderprops';
@@ -6,10 +7,7 @@ import CardContent from '@material-ui/core/CardContent';
 import ChatContact from './ChatContact';
 
 function Hello(){
-    const useStyles = makeStyles((theme) => ({ 
-        root: {
-            overflowAnchor: 'none'
-        },    
+    const useStyles = makeStyles((theme) => ({           
         chatBubleAnswer: {           
             marginTop: theme.spacing(-1),
             float: 'right',
@@ -43,15 +41,14 @@ function Hello(){
     const classes = useStyles();
     const [chatAgain, setChatAgain] = useState(true);
     
-
+    {/* scroll to div */}
     const el = useRef(null);
     useEffect(() => {
         el.current.scrollIntoView({behavior: 'smooth' });
     });
     
-    return(
-        <Spring     
-            className={classes.root}           
+    return(        
+        <Spring                          
             from={{marginRight: -300}}
             to={{marginRight: 0}}
             config={{delay: 100, duration: 500}}                                                             
