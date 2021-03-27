@@ -9,12 +9,12 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  /* background: url(./Background1.gif) no-repeat center center;
+  background: url(./Background1.gif) no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;  */
-  background: green;
+  background-size: cover;  
+  /* background: green; */
 }
 
 .navbar{
