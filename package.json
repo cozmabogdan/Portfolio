@@ -8,6 +8,9 @@
     "build": "cd client && npm install && nom run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "node": "14.15.4"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cozmabogdan/Portfolio.git"
