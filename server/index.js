@@ -6,11 +6,11 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 
-app.use(express.static(path.join(__dirname, '..', '/public' )));
+app.use(express.static(path.join(__dirname, '../client/public' )));
 
 
 app.get('/*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../public' , 'index.html'));
+    res.sendFile(path.resolve(__dirname, '../client/public' , 'index.html'));
 });
 
 
