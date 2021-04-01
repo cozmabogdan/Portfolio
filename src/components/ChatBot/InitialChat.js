@@ -85,11 +85,10 @@ function InitialChat() {
                 />                
             </CardContent>
 
-            {/* return's the coresponding answer component */}
-            <CardContent className={classes.chatBubleMargin}>
-                {chatHi}
-                {chatAsset}
-            </CardContent>
+            {/* return's the coresponding answer component */}            
+            {chatHi}
+            {chatAsset}
+            
         </div>
     )
 }
