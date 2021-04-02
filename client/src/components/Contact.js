@@ -33,7 +33,7 @@ function Contact() {
             width: 400,
             minHeight: 500,
             maxHeight: 500, 
-            marginBottom: 100           
+            marginBottom: 50           
         },        
         chatBubleInactive: {
             background: '#4c4c4d',

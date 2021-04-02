@@ -38,13 +38,7 @@ function NavBar(){
         },
         textFontSize: {
             fontSize: '16px'
-        },      
-        paragraph: {
-            height: 70
-        },
-        paragraphHeight: {
-            height: 60
-        },        
+        }                       
     }));
     const classes = useStyles();
 
@@ -116,7 +110,7 @@ function NavBar(){
                 </Grid>
 
                 {/* right project card */}
-                <Grid item container md={6}> 
+                <Grid container item md={6}> 
                     <Card className={classes.cardStyle}>
                         <CardHeader
                             avatar={

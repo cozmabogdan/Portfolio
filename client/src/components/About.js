@@ -119,7 +119,7 @@ function About(){
     const SkillRowOne = () => {
           return(
             <React.Fragment>
-                <Grid item md={12} className={classes.skill}>
+                <Grid item md={9} className={classes.skill}>
                     <Card className={classes.skillCard}>
                         <Avatar
                             variant='square'
@@ -187,7 +187,7 @@ function About(){
     const SkillRowTwo = () => {
           return(
             <React.Fragment>
-                <Grid item md={12} className={classes.skill}>
+                <Grid item md={9} className={classes.skill}>
                     <Card className={classes.skillCard}>
                         <Avatar
                             variant='square'
@@ -263,17 +263,17 @@ function About(){
                 </Grid>
                 
                 {/*Description column */}
-                <Grid container item md={4}>
+                <Grid container item md={4} xs={12} justify='center' alignItems='center'>
                     <Description />
                 </Grid>                  
 
                 {/*First skill column */}
-                <Grid container item md={4} justify='center' alignItems='center'>   
+                <Grid container item md={4} xs={12} justify='center' alignItems='center'>   
                     <SkillRowOne />                                          
                 </Grid> 
 
                 {/*Second skill column */} 
-                <Grid container item md={4} justify='center' alignItems='center'>
+                <Grid container item md={4} xs={12} justify='center' alignItems='center'>
                     <SkillRowTwo />
                 </Grid>                         
             </Grid>

@@ -18,9 +18,8 @@ import Contact from './Contact';
 
 function App() {
   const useStyles = makeStyles((theme) => ({
-    root: {
-      flexGrow: 1,
-      height: '100vh'
+    root: {     
+      height: 'auto'
     },
     h2: {
       color: 'white',
@@ -33,6 +32,7 @@ function App() {
       justifyContent: 'center',
       marginLeft: 'auto',
       marginRight: 'auto',
+      marginBottom: 50,
       width: 200
     },
     name: {
@@ -74,7 +74,7 @@ function App() {
 
               {/* navbar */}
               <AppBar position='sticky' className='navbar'>
-                <Toolbar className='navbar-item'>                                 
+                <Toolbar className='navbar-items'>                                 
                     <Typography variant="h6" className='navbar-item'>
                         <Button size="large"><Scrollchor to="" className='navbar-btn'>Home</Scrollchor></Button>
                     </Typography>                                            

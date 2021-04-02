@@ -32,11 +32,15 @@ body {
   color: #d83637;
 }
 
-.navbar-item{
+.navbar-items{
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-right: 3rem;
+  justify-content: center;  
+}
+
+.navbar-item{
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .scroll-btn-style {
