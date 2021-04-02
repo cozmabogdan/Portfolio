@@ -15,7 +15,7 @@ function Contact() {
     const useStyles = makeStyles((theme) => ({
         root: {
             flexGrow: 1,
-            height: '100vh',
+            height: 'auto',
             backgroundColor: '#161b1d'
         },                                 
         chatGrid: {
@@ -23,8 +23,7 @@ function Contact() {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            marginTop: theme.spacing(6),
-            marginBottom: theme.spacing(6)            
+            marginTop: theme.spacing(6),                       
         },
         chatHeader: {            
             backgroundColor: '#F5F5F5',  
@@ -33,7 +32,8 @@ function Contact() {
         chat: {            
             width: 400,
             minHeight: 500,
-            maxHeight: 500,            
+            maxHeight: 500, 
+            marginBottom: 100           
         },        
         chatBubleInactive: {
             background: '#4c4c4d',

@@ -58,9 +58,12 @@ function App() {
               <Grid item xs={12} className='container' id=''>
                   <Container>
                     <div id='home'>
-                    <Typography variant="h2" gutterBottom className={classes.h2}>
-                      I'm a full-stack web developer.
-                    </Typography>               
+                      <Typography variant="h2" gutterBottom className={classes.h2}>
+                        Hello, I'm <span className={classes.name}>Bogdan Cozma</span>.
+                      </Typography>
+                      <Typography variant="h2" gutterBottom className={classes.h2}>
+                        I'm a full-stack web developer.
+                      </Typography>              
                     <Button onMouseOver={changeArrow} onMouseOut={changeArrowBack} variant={onHover ? "contained" : "outlined"} color="primary" size="large" className={classes.button}><Scrollchor to='#work' className='scroll-btn-style'>View my work </Scrollchor>{onHover ? <ArrowDownwardIcon/> : <ArrowForwardIcon/>}</Button>
                     </div>
                   </Container>          

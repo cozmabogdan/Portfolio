@@ -22,7 +22,7 @@ import TrackVisibility from 'react-on-screen';
 function NavBar(){
     const useStyles = makeStyles((theme) => ({
         root: {          
-            height: '100vh'
+            height: 'auto'
         },        
         cardStyle: {
             margin: '2rem'
@@ -79,7 +79,7 @@ function NavBar(){
                 </Grid>
 
                 {/* left project card */}
-                <Grid container item xs={6}> 
+                <Grid container item md={6}> 
                     <Card className={classes.cardStyle}>
                         <CardHeader
                             avatar={
@@ -116,7 +116,7 @@ function NavBar(){
                 </Grid>
 
                 {/* right project card */}
-                <Grid item xs={6} container> 
+                <Grid item container md={6}> 
                     <Card className={classes.cardStyle}>
                         <CardHeader
                             avatar={

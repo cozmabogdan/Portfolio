@@ -231,6 +231,7 @@ h1 {
   padding: 12px;
   margin-bottom: 6px;
   height: 120px;
+  overflow: hidden;
 }
 .shape:before {
   content: '';

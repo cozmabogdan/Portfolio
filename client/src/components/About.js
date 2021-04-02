@@ -25,9 +25,8 @@ import TrackVisibility from 'react-on-screen';
 
 function About(){
     const useStyles = makeStyles((theme) => ({
-        root: {
-            flexGrow: 1,
-            height: '100vh',
+        root: {           
+            height: 'auto',            
             backgroundColor: '#F5F5F5',            
         },        
         large: {            
@@ -61,13 +60,8 @@ function About(){
             color: '#34c2c9',
             marginBottom: '1rem'
         },
-        skill: {
-            display:'flex',
-            flexDirection: 'row',
-            alignContent: 'center',
-            justifyContent: 'center',            
-            margin: theme.spacing(4),            
-            width: '160px'
+        skill: {                      
+            margin: theme.spacing(4)            
         },                                                       
         avatarSkill: {  
             maxWidth: 35,
@@ -105,16 +99,16 @@ function About(){
     const Description = () => {
           return(
             <React.Fragment>
-                <Grid item xs={12}>
+                <Grid item sm={12}>
                     <Avatar alt="Cozma Bogdan" src={avatarImg} className={classes.large} />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item sm={12}>
                     <Typography variant="h4" className={classes.title}>Who's this guy?</Typography> 
                  </Grid>
-                <Grid item xs={12}>
+                <Grid item sm={12}>
                     <Typography className={classes.about}>I'm a Full-Stacked developer with a serious passion for Web Development. These days I spend my time expanding my knowledge.</Typography>                     
                 </Grid>    
-                <Grid item xs={12}>
+                <Grid item sm={12}>
                     <Typography className={classes.contact}><Button className={classes.contact} href="/contact">Let's make something special</Button> </Typography>               
                 </Grid>
             </React.Fragment>
@@ -125,7 +119,7 @@ function About(){
     const SkillRowOne = () => {
           return(
             <React.Fragment>
-                <Grid item xs={12} className={classes.skill}>
+                <Grid item md={12} className={classes.skill}>
                     <Card className={classes.skillCard}>
                         <Avatar
                             variant='square'
@@ -137,7 +131,7 @@ function About(){
                         </Typography>                                                                                                                                   
                     </Card>
                 </Grid>
-                <Grid item xs={12} className={classes.skill}>
+                <Grid item md={9} className={classes.skill}>
                     <Card className={classes.skillCard}>
                         <Avatar
                             variant='square'
@@ -149,7 +143,7 @@ function About(){
                         </Typography>                                                                                                                                   
                     </Card>
                 </Grid>
-                <Grid item xs={12} className={classes.skill}>
+                <Grid item md={9} className={classes.skill}>
                     <Card className={classes.skillCard}>
                         <Avatar
                             variant='square'
@@ -161,7 +155,7 @@ function About(){
                         </Typography>                                                                                                                                   
                     </Card>
                 </Grid>
-                <Grid item xs={12} className={classes.skill}>
+                <Grid item md={9} className={classes.skill}>
                     <Card className={classes.skillCard}>
                         <Avatar
                             variant='square'
@@ -173,7 +167,7 @@ function About(){
                         </Typography>                                                                                                                                   
                     </Card>
                 </Grid>
-                <Grid item xs={12} className={classes.skill}>
+                <Grid item md={9} className={classes.skill}>
                     <Card className={classes.skillCard}>
                         <Avatar
                             variant='square'
@@ -193,7 +187,7 @@ function About(){
     const SkillRowTwo = () => {
           return(
             <React.Fragment>
-                <Grid item xs={12} className={classes.skill}>
+                <Grid item md={12} className={classes.skill}>
                     <Card className={classes.skillCard}>
                         <Avatar
                             variant='square'
@@ -205,7 +199,7 @@ function About(){
                         </Typography>                                                                                                                                   
                     </Card>
                 </Grid>
-                <Grid item xs={12} className={classes.skill}>
+                <Grid item md={9} className={classes.skill}>
                     <Card className={classes.skillCard}>
                         <Avatar
                             variant='square'
@@ -217,7 +211,7 @@ function About(){
                         </Typography>                                                                                                                                   
                     </Card>
                 </Grid>
-                <Grid item xs={12} className={classes.skill}>
+                <Grid item md={9} className={classes.skill}>
                     <Card className={classes.skillCard}>
                         <Avatar
                             variant='square'
@@ -229,7 +223,7 @@ function About(){
                         </Typography>                                                                                                                                   
                     </Card>
                 </Grid>
-                <Grid item xs={12} className={classes.skill}>
+                <Grid item md={9} className={classes.skill}>
                     <Card className={classes.skillCard}>
                         <Avatar
                             variant='square'
@@ -241,7 +235,7 @@ function About(){
                         </Typography>                                                                                                                                   
                     </Card>
                 </Grid>
-                <Grid item xs={12} className={classes.skill}>
+                <Grid item md={9} className={classes.skill}>
                     <Card className={classes.skillCard}>
                         <Avatar
                             variant='square'
@@ -262,24 +256,24 @@ function About(){
 
             {/* title animation */}            
             <Grid container spacing={1}>                
-                <Grid container item xs={12} justify="center">
+                <Grid container item lg={12} justify="center">
                     <TrackVisibility>
                         {animation}
                     </TrackVisibility>
                 </Grid>
                 
                 {/*Description column */}
-                <Grid container item xs={4} direction="column">
+                <Grid container item md={4}>
                     <Description />
                 </Grid>                  
 
                 {/*First skill column */}
-                <Grid container item xs={4}>   
+                <Grid container item md={4} justify='center' alignItems='center'>   
                     <SkillRowOne />                                          
                 </Grid> 
 
                 {/*Second skill column */} 
-                <Grid container item xs={4}>
+                <Grid container item md={4} justify='center' alignItems='center'>
                     <SkillRowTwo />
                 </Grid>                         
             </Grid>
