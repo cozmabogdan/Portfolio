@@ -14,7 +14,7 @@ import reactIcon from '../images/react.png';
 import nodejsIcon from '../images/node.png';
 import bootstrapIcon from '../images/bootstrap.png';
 import jqueryIcon from '../images/jquery.png';
-import pythonIcon from '../images/python.png';
+import sqlIcon from '../images/sql.png';
 import apiIcon from '../images/API.png';
 import mongoIcon from '../images/mongo.png';
 import TrackVisibility from 'react-on-screen';
@@ -69,9 +69,10 @@ function About(){
             margin: theme.spacing(4),            
             width: '160px'
         },                                                       
-        avatarSkill: {            
-            width: '25px',
-            height: '35px',
+        avatarSkill: {  
+            maxWidth: 35,
+            maxHeight: 35,                      
+            objectFit: 'contain',
             marginRight: theme.spacing(2),
         },
         skillCard: {
@@ -129,7 +130,7 @@ function About(){
                         <Avatar
                             variant='square'
                             className={classes.avatarSkill}
-                            src={cssIcon}
+                            src={cssIcon}                            
                         />                                                     
                         <Typography component="h5" variant="h5">
                             CSS
@@ -221,10 +222,10 @@ function About(){
                         <Avatar
                             variant='square'
                             className={classes.avatarSkill}
-                            src={pythonIcon}
+                            src={sqlIcon}
                         />                                                     
                         <Typography component="h5" variant="h5">
-                            Python
+                            MySql
                         </Typography>                                                                                                                                   
                     </Card>
                 </Grid>
