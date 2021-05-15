@@ -132,7 +132,7 @@ function NavBar(){
                             </Typography>
                         </CardContent>
                         <CardActions disableSpacing>
-                            <Button className={classes.button} startIcon={<GitHubIcon />} href="http://www.cabinetpsihologie.org/">GitHub</Button>                        
+                            <Button className={classes.button} startIcon={<GitHubIcon />} href="https://github.com/cozmabogdan/PurpleEverGlow">GitHub</Button>                        
                             <Button className={classes.button}  startIcon={<LinkIcon />} href="http://www.purpleeverglow.com/">Live Demo</Button>
                             <Button onClick={()=> setExpand2(!expand2)} aria-expanded={expand2} startIcon={<ExpandMoreIcon />}>{expand2 ? 'Show Less' : 'Show More'}</Button>                         
                         </CardActions>
